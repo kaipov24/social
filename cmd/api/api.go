@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/kaipov24/social/internal/store"
 	"log"
 	"net/http"
 	"time"
@@ -10,6 +11,7 @@ import (
 
 type application struct {
 	config config
+	store  store.Storage
 }
 
 type config struct {
