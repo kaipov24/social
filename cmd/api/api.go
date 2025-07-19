@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
-	"github.com/kaipov24/social/internal/store"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/kaipov24/social/internal/store"
 )
 
 type application struct {
@@ -45,6 +46,10 @@ func (app *application) mount() http.Handler {
 
 			r.Route("/{postID}", func(r chi.Router) {
 				r.Get("/", app.getPostHandler)
+
+				// r.Patch("/", app.updatePostHandler)
+
+				r.Delete("/", app.deletePostHandler)
 			})
 		})
 
